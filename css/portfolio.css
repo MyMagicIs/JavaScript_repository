@@ -1,0 +1,776 @@
+
+/* Body */
+body {
+    background-color: #a0a0a0;
+    margin: 0; /* Removes default browser margins to make content span the full width and height of the browser window */
+    opacity: 1; /* Ensures the page is fully visible after loading */
+    transition: opacity 2s ease-in; /* Adds a smooth 2-second fade-in effect when the page loads */
+    letter-spacing: 0.2vw; /* Adjusts the spacing between letters based on the viewport width (1vw = 1% of the viewport width) */
+    font-family: 'Avant Garde', Helvetica, sans-serif; /* Sets a modern, sans-serif font for the page */
+    font-size: 1.5vw; /* Sets font size relative to the viewport width for responsive text scaling */
+    overflow-x: hidden; /* Prevents horizontal scrolling, even if content overflows horizontally */
+    user-select: none; /* Disables text selection by the user for a cleaner browsing experience */
+}
+
+/* Fade effect applied during page load */
+body.fade-out {
+    opacity: 0.5; /* Sets the initial opacity to invisible for the fade-in effect */
+}
+
+.Background {
+    background-image: url('images/background.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    height: 100vh; /* Makes the background cover the full viewport height */
+}
+/* __________________________________________________________________ */
+
+
+/* __________________________________________________________________ */
+/* Image hover effects */
+img {
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for multiple properties */
+}
+
+img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+    filter: brightness(1.2) contrast(1.1); /* Enhances brightness and contrast for a vivid look */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Adds a soft shadow for a lifted effect */
+}
+/* __________________________________________________________________ */
+
+/* __________________________________________________________________ */
+
+/* General Navbar styles */
+.Navbar {
+    overflow: hidden; /* This ensures that any content that overflows beyond the boundary of our nav bar is not displayed */
+    background-color: #a0a0a0; /* This colors the navbar black */
+    display: flex;
+    width: 100%; /* This makes the navbar span the entire width of the page */
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    padding: 10px 20px; /* Spacing around the Navbar */
+    position: relative;
+    animation: slideInBounce 2s ease-out; /* Applies the bounce animation over 2 second */
+    opacity: 2; /* Ensures the navbar is visible after the animation */
+}
+/* The animation effect for moving the navbar in from above with a bounce */
+@keyframes slideInBounce {
+    0% {
+        transform: translateX(-100%) translateY(-50px); /* Start off-screen and slightly above */
+        opacity: 0; /* Fully transparent at the start */
+    }
+    70% {
+        transform: translateX(10%) translateY(0); /* Slight overshoot for the bounce effect */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateX(0) translateY(0); /* Settles into the final position */
+    }
+}
+
+/* Navbar button styles */
+.nav-button {
+    display: inline-block;
+    text-decoration: none; /* Removes underline */
+    color: rgb(255, 255, 255); /* Button text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 20px; /* Font size */
+    text-align: center; /* Center-aligns text */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+    animation: slideInBounce-button 3.5s ease-out; /* Applies the bounce animation over 3.5 second */
+}
+/* The animation effect for moving the navbar-button in from above with a bounce */
+@keyframes slideInBounce-button {
+    0% {
+        transform: translateX(-100%) translateY(-50px); /* Start off-screen and slightly above */
+        opacity: 0; /* Fully transparent at the start */
+    }
+    70% {
+        transform: translateX(10%) translateY(0); /* Slight overshoot for the bounce effect */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateX(0) translateY(0); /* Settles into the final position */
+    }
+}
+
+/* Hover effect for buttons */
+.nav-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
+    cursor: pointer;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .5); /* Adds a shadow on hover */
+}
+
+/* Active link styling (optional) */
+.nav-button.active {
+    background-color: #0056b3; /* Same as hover */
+    font-weight: bold; /* Makes the active link stand out */
+}
+
+/* Responsive Navbar: Stack links on smaller screens */
+@media (max-width: 768px) {
+    .Navbar {
+        flex-direction: column; /* Stack links vertically */
+        align-items: center; /* Center-align the links */
+    }
+
+    .nav-button {
+        width: 80%; /* Buttons stretch to 80% of the container width */
+    }
+}
+/* END General Navbar styles */
+/* __________________________________________________________________ */
+
+
+/* __________________________________________________________________ */
+#Typing_Video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -5; /* Video at the bottom layer */
+}
+
+#Contact img {
+    width: 90%; /* 1/6th of the webpage width */
+    float: left; /* Positions the image to the left */
+    margin-right: 20px; /* Adds spacing between the image and the form */
+    border: 2px solid #000000; /* 2-pixel border */
+    box-sizing: border-box; /* Includes border in width calculation */
+}
+
+/* __________________________________________________________________ */
+
+/* Video and Text Section Container */
+.VideoTextContainer {
+    display: flex; /* Arranges video and text side by side */
+    flex-wrap: wrap; /* Ensures wrapping for smaller screens */
+    justify-content: space-between; /* Adds space between columns */
+    align-items: center; /* Centers content vertically */
+    padding: 20px; /* Padding around the container */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    gap: 20px; /* Adds space between video and text */
+}
+
+/* Video Styling */
+.VideoContainer {
+    flex: 1; /* Takes equal space as the text */
+    max-width: 500px; /* Limits video size */
+    display: flex;
+    justify-content: center; /* Centers video horizontally */
+    align-items: center;
+}
+
+.VideoContainer iframe {
+    width: 100%; /* Makes the video responsive */
+    aspect-ratio: 16/9; /* Maintains 16:9 aspect ratio */
+    border-radius: 8px; /* Rounded corners for the video */
+    border: none; /* Removes default border */
+}
+
+/* __________________________________________________________________ */
+
+/* Text Styling */
+.TextContainer {
+    height: 100vh; /* Make the container take up the full height of the viewport */
+    flex: 1; /* Takes equal space as the video */
+    padding: 20px;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers the text inside the container */
+    animation: slideInBounce-text 3.5s ease-out; /* Applies the bounce animation over 3.5 second */
+    padding: 20px; /* Add some padding for spacing */
+    box-sizing: border-box; /* Include padding in the element's dimensions */
+}
+
+.TextContainer h1 {
+    text-transform: uppercase; /* Ensures all text is in uppercase for a bold statement */
+    font-family: "Trebuchet MS", Optima, sans-serif; /* Added fallback to sans-serif for better compatibility */
+    text-align: center; /* Keeps headings centered */
+    margin-top: 2%; /* Slightly reduced margin for better spacing */
+    margin-bottom: 1%; /* Adds a small margin below to balance spacing */
+    color: #333; /* Subtle dark gray for a modern look */
+    letter-spacing: 0.1em; /* Adds spacing between letters for better readability */
+    line-height: 1.2; /* Improves line spacing for multi-line headings */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-bottom: 2px solid #e0e0e0; /* Adds a clean underline effect */
+    padding-bottom: 0.8em; /* Space between the text and the underline */    
+    animation: slideInBounce-text 3.5s ease-out; /* Applies the bounce animation over 3.5 second */
+}
+/* The animation effect for moving the text in from above with a bounce */
+@keyframes slideInBounce-text {
+    0% {
+        transform: translateX(-100%) translateY(-50px); /* Start off-screen and slightly above */
+        opacity: 0; /* Fully transparent at the start */
+    }
+    70% {
+        transform: translateX(10%) translateY(0); /* Slight overshoot for the bounce effect */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateX(0) translateY(0); /* Settles into the final position */
+    }
+}
+
+h1:hover {
+    color: #1a73e8; /* Changes color to a soft blue on hover */
+    text-shadow: 3px 3px 6px rgba(26, 115, 232, 0.4); /* Adjusts shadow for emphasis */
+    transform: scale(1.02); /* Slightly enlarges the text */
+    transition: all 0.3s ease-in-out; /* Smooth transition for the hover effect */
+}
+
+.TextContainer p {
+    font-size: 1em; /* Comfortable font size */
+    line-height: 1.6; /* Improves readability */
+    color: #000000; /* Softer text color */
+    text-align: left;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px; /* Position it at the bottom of the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    animation: bounce 2s infinite; /* Add a bounce animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+
+/* __________________________________________________________________ */
+/* Quotation */
+q {
+    font-style: italic; /* Keeps the classic italic style for quotes */
+    font-weight: 600; /* Adds a bit of boldness to emphasize the quote */
+    font-size: 1.2em; /* Slightly larger than the default font size for prominence */
+    color: #555; /* Uses a subtle gray tone for elegance */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Adds a soft shadow for depth */
+    position: relative; /* Allows positioning for decorative elements */
+    animation: slideIn-text 3.5s ease-out; /* Applies the bounce animation over 3.5 second */
+}
+/* The animation effect for moving the text in from above with a bounce */
+@keyframes slideIn-text {
+    0% {
+        transform: translateX(-100%) translateY(-50px); /* Start off-screen and slightly above */
+        opacity: 0; /* Fully transparent at the start */
+    }
+    70% {
+        transform: translateX(10%) translateY(0); /* Slight overshoot for the bounce effect */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateX(0) translateY(0); /* Settles into the final position */
+    }
+}
+q:hover {
+    color: #333; /* Darkens the text on hover */
+    text-shadow: 3px 3px 6px rgba(3, 23, 48, 0.4); /* Adjusts shadow for emphasis */
+    transform: scale(1.05); /* Slight zoom for an interactive feel */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+/* __________________________________________________________________ */
+/* __________________________________________________________________ */
+
+
+
+/***** Slideshow Styling *****/
+/* Make slideshow responsive */
+
+/* Slideshow Background */
+#Slideshow_Background {
+    background: rgba(255, 255, 255, 0.4); /* Slightly transparent white for a clean, modern look */
+    border-radius: 12px; /* Rounded corners for the background */
+    padding: 50px 0; /* Add space inside the background for a balanced design */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+/* Hide slides by default; JavaScript will make them visible one at a time */
+.mySlides {
+    display: none; /* Prevent images from displaying until activated */
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation when slides appear */
+}
+
+/* Slideshow Container */
+#Slideshow_Container {
+    width: 90%; /* Use 40% of the viewport width for better responsiveness */
+    max-width: 600px; /* Prevent it from getting too large on wide screens */
+    height: auto; /* Automatically adjust height based on the content */
+    padding-top: 2%; /* Add space above the slideshow */
+    position: relative; /* Position it relative to its normal flow */
+    margin: 0 auto; /* Center the container horizontally on the page */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border for a polished look */
+    border-radius: 12px; /* Smooth rounded corners for a modern design */
+    overflow: hidden; /* Prevent content from spilling outside the container */
+    background-color: hsla(0, 1%, 56%, 0.365); /*  background for slides */
+}
+
+/* Remove underline from links inside the slideshow container */
+#Slideshow_Container a {
+    text-decoration: none; /* Remove underlines for a cleaner look */
+    color: inherit; /* Ensure links match the surrounding text color */
+}
+
+/* Ensure images resize proportionally */
+.slideshow-images {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 1s ease-in-out;
+}
+/* Add a fade-in animation for a smoother user experience */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with the element fully transparent */
+        transform: scale(0.95); /* Slightly shrink the element */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
+/* Add hover effects to buttons inside the container */
+#Slideshow_Container button {
+    transition: all 0.3s ease; /* Smooth hover effect for buttons */
+}
+
+#Slideshow_Container button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover for better visibility */
+    color: #fff; /* Change text color to white for contrast */
+}
+
+
+/* Navigation Buttons */
+.previous, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%; /* Circular buttons */
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+.previous:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+.previous {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Dots */
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 5px;
+    display: inline-block;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+/* hover effect on dots */
+.dot.active, .dot:hover {
+    background-color: #2e0000; /* Highlight active or hovered dots */
+}
+/* Improve text contrast */
+.text {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for text */
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Add a fade-in animation to the text */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* __________________________________________________________________ */
+/* __________________________________________________________________ */
+
+/* Table Styling for about me and all below */
+
+/* Apply box-sizing universally but with better specificity */
+
+html {
+    box-sizing: border-box;
+}
+
+/* Ensure all child elements inherit the box-sizing property */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* About section container */
+
+/* About Container */
+.AboutContent {
+    display: flex; /* Ensures side-by-side layout */
+    justify-content: space-between; /* Even spacing between content */
+    align-items: center; /* Vertically centers the content */
+    color: #000000; /* Dark text color */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Adds padding inside the text area */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
+
+/* Left Column: Image */
+.AboutImage {
+    flex: 1; /* Takes equal space as the content */
+    float: left;
+    max-width: 50%; /* Restricts max width to 45% of the container */
+    height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
+    display: flex; /* For alignment */
+    justify-content: center; /* Centers the image horizontally */
+}
+
+.AboutImage img {
+    width: 100%; /* Fully responsive image */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #ddd; /* Subtle border */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
+}
+
+.AboutImage img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Right Column: Text Content */
+.AboutContent {
+    flex: 1; /* Takes equal space as the image */
+    float: right;
+    max-width: 50%; /* Ensures the content takes up half the space */
+    height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
+    text-align: center; /* Aligns text to the left */
+    font-family: 'Arial', sans-serif; /* Clean font style */
+    color: #333; /* Dark text color */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Adds padding inside the text area */
+    border-radius: 10px; /* Smooth rounded corners */
+    border: 1px solid #ddd; /* Subtle border around the content */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+.AboutContent h1 {
+    font-size: 2em; /* Larger heading size */
+    color: #444; /* Slightly lighter than the text color */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+.AboutContent p {
+    line-height: 1.6; /* Better readability */
+    font-size: 1rem; /* Standard text size */
+}
+
+.AboutContent a {
+    color: #007bff; /* Blue link color */
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+.AboutContent a:hover {
+    color: #1eff00; /* Darker blue on hover */
+    text-decoration: underline; /* Adds underline on hover */
+}
+/* __________________________________________________________________ */
+
+
+/* __________________________________________________________________ */
+/* GitHub Section Container */
+
+
+
+.GitHubContainer {
+    float: left;
+    display: flex; /* Ensures side-by-side layout */
+    justify-content: space-between; /* Even spacing between content */
+    align-items: center; /* Vertically centers the content */
+    color: #000000; /* Dark text color */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Adds padding inside the text area */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 5px 15px rgb(0, 0, 0); /* Slight shadow for depth */
+}
+
+/* Left Column Styling */
+.GitHubText {
+    float: left;
+    width: 50%;
+    padding: 1.6%;
+    height: 450px;
+    background-color: rgba(255, 255, 255, 0.959);
+}
+
+.GitHubText h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Darker text for better contrast */
+}
+
+.GitHubText p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555; /* Softer text color */
+}
+
+.GitHubLink {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.GitHubLink:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Right Column Styling */
+.GitHubImage {
+    flex: 1; /* Takes up equal space as the text */
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;
+}
+
+.GitHubImage img {
+    width: 100%; /* Makes the image responsive */
+    max-width: 450px; /* Limits maximum image size */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Hover Effect: Change Image */
+.GitHubImage img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    content: url('images/Github_lit.jpg'); /* Replaces the image with a different one */
+    opacity: 0.95; /* Slight dimming effect */
+}
+
+/* __________________________________________________________________ */
+/* __________________________________________________________________ */
+
+
+
+/* __________________________________________________________________ */
+/* Contact section layout */
+#Contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: hsla(0, 1%, 56%, 0.365); /*  background for slides */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px; /* Restrict width for better readability */
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.form-container h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-container textarea {
+    height: 100px; /* Fixed height for the message box */
+    resize: vertical; /* Allow resizing vertically */
+}
+
+.form-container .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.form-container .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* __________________________________________________________________ */
+
+/* Social media buttons styles */
+.social-links {
+    text-align: center; /* Centers the buttons */
+    margin-bottom: 20px;
+}
+
+.social-button {
+    background-color: #a0a0a0; /* This colors the navbar black */
+
+    width: 20%; /* This makes the navbar span the entire width of the page */
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+
+    position: relative;
+    color: rgb(0, 0, 0); /* Text color */
+    text-decoration: none; /* Removes underline */
+    border: 2px solid rgb(0, 0, 0); /* Border around the button */
+    padding: 10px 30px; /* Padding for the button */
+    margin: 0 10px; /* Adds space between the buttons */
+    display: inline-block; /* Aligns buttons horizontally */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect: glow animation */
+.social-button:hover {
+
+    background-color: rgba(0, 0, 0, 0.1); /* Slight dark background on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .5); /* Adds a shadow on hover */
+}
+
+/* Optional: Animation effect on button click (glow effect) */
+.social-button:active {
+    animation: glow 1s ease-in-out infinite; /* Glow effect when clicked */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+}
+/* END Social media buttons styles */
+/* __________________________________________________________________ */
+
+
+/* Default font size for paragraph (for large screens) */
+p {
+    font-size: 16px; /* Base font size */
+}
+
+/* Smaller screens (below 768px) */
+@media screen and (max-width: 768px) {
+    p {
+        font-size: 14px;
+    }
+}
+
+/* Medium screens (768px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    p {
+        font-size: 15px;
+    }
+}
+
+/* Larger screens (1025px and above) */
+@media screen and (min-width: 1025px) {
+    p {
+        font-size: 16px; /* Default or slightly larger */
+    }
+}
+
+
+/* Navbar Links: Adjust for screens 1080px and smaller */
+@media screen and (max-width: 1080px) {
+    .Navbar a {
+        flex: 1; /* Distribute links equally in the navbar */
+        font-size: 2.5vw; /* Adjust font size for smaller screens */
+        text-align: center; /* Center align the links for better readability */
+    }
+}
+
+/* Adjust font sizes for text elements on smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote {
+        font-size: 3.5vw; /* Scale font size for quotes */
+    }
+
+    .white-text {
+        font-size: 4vw; /* Slightly smaller for consistency */
+    }
+}
+
+/* Adjust column sizes for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column {
+        height: 550px; /* Set a consistent height for all columns */
+    }
+}
+
+/* Remove extra margin for h1 on very large screens */
+@media screen and (min-width: 2000px) {
+    h1 {
+        margin-top: 0; /* Avoid unnecessary spacing */
+    }
+}

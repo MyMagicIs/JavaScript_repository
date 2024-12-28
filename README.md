@@ -1,2 +1,2 @@
-# JavaScript_repository
- JavaScript and other projects
+# JavaScript_ repository
+ JavaScript and projrcts

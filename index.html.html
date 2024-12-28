@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <!-- Head -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>AnujShelke</title>
+        <link rel="stylesheet" type="text/css" href="css/portfolio.css">
+    </head>
+
+    <!-- Body -->  
+    <body class="Background">
+        
+        <!-- Header/Navbar -->
+        <header class="Navbar">
+            <a href="#Home" class="nav-button" role="button">Home</a>
+            <a href="#Slideshow" class="nav-button" role="button">Slideshow</a>            
+            <a href="#About" class="nav-button" role="button">About</a>
+            <a href="#GitHub" class="nav-button" role="button">GitHub</a>
+            <a href="#Contact" class="nav-button" role="button">Contact</a>
+        </header>
+        <br><br>
+        <br><br>
+
+        <!-- Background Video Section -->
+        <div id="Home">
+            <video autoplay muted loop id="Typing_Video" aria-label="Background video of typing on a keyboard.">
+                <source src="images/video/Typing.mp4" type="video/mp4">
+                <source src="images/video/Typing.webm" type="video/webm">
+                <!-- Fallback Message -->
+                Your browser does not support HTML5 video. Please <a href="images/video/Typing.mp4" download>download the video</a> to view it.
+
+            </video>
+        </div>
+
+        <!-- Text Intro -->
+        <div class="TextContainer">
+            <h1 class="white-text">Anuj's Portfolio</h1>
+            <strong>
+                <p class="center">
+                    <q>The best way to predict the future is to invent it.</q>
+                    <br> — Alan Kay
+                    <br><br> Hi, I’m Anuj Shelke, and welcome to my digital world!
+                    <br>This is where you’ll get to know my journey, my skills, and the experiences that shape the work I do. 
+                    <br>Whether you're here to explore my projects or learn more about my story, I’m thrilled you stopped by.
+                    <br><br> Dive in, take a look around, and let’s make something amazing together!
+                </p>
+            </strong>
+        </div>
+        <div class="scroll-down" aria-label="Scroll down">
+            ⬇️ Scroll Down
+        </div>
+        
+        <br><br>
+        <br><br>
+            
+<!-- Slideshow section -->
+        <section id="Slideshow" aria-label="Slideshow of skills and contact options">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+
+                    <!-- Slide 1 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/My_Pic.jpg" 
+                            alt="Photo of Anuj Shelke ready to assist on a project">
+                        <div class="text">
+                            <p>I'm available to assist you on your project!</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/HTML_CSS_and_JS.jpeg" 
+                            alt="Icons of HTML, CSS, and JavaScript">
+                        <div class="text">
+                            <p>I am a full-stack software developer, trained in:<br>HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/Python.png" 
+                            alt="Python programming language logo">
+                        <div class="text">
+                            <p>The popular programming language Python</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/C_and_NET.jpg" 
+                            alt="C# and .NET Framework logos">
+                        <div class="text">
+                            <p>C#, .NET Framework, ASP.NET, MVC</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/SQL_and_Database.jpg" 
+                            alt="SQL database management">
+                        <div class="text">
+                            <p>Back-end development, databases, and SQL</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="images/BG.jpg" 
+                            alt="Placeholder image for contact">
+                        <div class="text">
+                            <a class="white-text contact" onclick="openForm()">Contact me now!</a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="previous" onclick="nextSlide(-1)" aria-label="Previous slide">&#10094;</button>
+                    <button class="next" onclick="nextSlide(1)" aria-label="Next slide">&#10095;</button>
+                </div>
+
+                <!-- Dots for Slide Navigation -->
+                <div style="text-align: center" role="navigation" aria-label="Slideshow navigation dots">
+                    <span class="dot" onclick="goToSlide(1)" aria-label="Go to slide 1" title="Slide 1"></span>
+                    <span class="dot" onclick="goToSlide(2)" aria-label="Go to slide 2" title="Slide 2"></span>
+                    <span class="dot" onclick="goToSlide(3)" aria-label="Go to slide 3" title="Slide 3"></span>
+                    <span class="dot" onclick="goToSlide(4)" aria-label="Go to slide 4" title="Slide 4"></span>
+                    <span class="dot" onclick="goToSlide(5)" aria-label="Go to slide 5" title="Slide 5"></span>
+                    <span class="dot" onclick="goToSlide(6)" aria-label="Go to slide 6" title="Slide 6"></span>
+                </div>
+            </div>
+        </section>
+<!-- END Slideshow section -->
+
+<!-- About Section -->
+        <div class="AboutContainer" id="About">
+            <!-- Left Column: Image -->
+            <div class="AboutImage">
+                <img src="images/about_me.jpg" alt="A photo representing my journey as a developer">
+            </div>
+
+            <!-- Right Column: Text Content -->
+            <div class="AboutContent">
+                <h1>About Me</h1>
+                <p>
+                    Hi there! I'm a software developer driven by a passion for crafting creative solutions through code. Beyond coding, I cherish moments with my kid and exploring the world of books.
+                    <br><br>
+                    I honed my skills at <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a> and am proficient in HTML, CSS, JavaScript, SQL, C++, and more. Over the years, I've worked on exciting projects that pushed the boundaries of my creativity and technical expertise.
+                    <br><br>
+                    As a full-stack developer, I'm always eager to collaborate and bring your vision to life. <a href="#Contact">Let’s connect!</a>
+                </p>
+            </div>
+        </div>
+<!-- END About Section -->
+
+        <!-- GitHub Section -->
+        <div class="GitHubContainer" id="GitHub">
+            <!-- Left column with text -->
+            <div class="GitHubText">
+                <h1>GitHub</h1>
+                <p>
+                    Explore my coding projects and contributions on my GitHub profile. I enjoy collaborating on open-source projects
+                    and building innovative solutions.
+                </p>
+                <p>
+                    <a href="https://github.com/MyMagicIs" target="_blank" class="GitHubLink">Visit The Tech Academy GitHub</a>
+                </p>
+            </div>
+
+            <!-- Right column with image -->
+            <div class="GitHubImage">
+                <a href="https://github.com/MyMagicIs" target="_blank">
+                    <img src="images/Github_off.jpg" alt="GitHub Logo">
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Simple Contact Form -->
+        <div id="Contact">
+            <form class="form-container">
+                <h1>Contact</h1>
+
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Type your name here" name="name" required>
+
+                <label for="phone"><b>Phone</b></label>
+                <input type="text" placeholder="Type your phone number here" name="phone">
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Type your email here" name="email" required>
+
+                <label for="message"><b>Message</b></label>
+                <textarea placeholder="Type your message here" name="message" required></textarea>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+
+
+
+
+
+
+
+<!-- Footer section -->
+<footer>
+    <div class="social-links">
+        <a href="https://www.instagram.com" class="social-button" target="_blank" role="button">Instagram</a>
+        <a href="https://www.facebook.com" class="social-button" target="_blank" role="button">Facebook</a>
+        <a href="https://www.twitter.com" class="social-button" target="_blank" role="button">Twitter</a>
+    </div>
+
+    <p class="center">&copy; Prosper Consulting Inc., <a href="https://www.AnujShelke.com/" target="_blank">Anuj Shelke</a></p>
+</footer>
+
+
+
+
+    </body>
+</html>
+    
