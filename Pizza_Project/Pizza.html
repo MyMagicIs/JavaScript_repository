@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Pizza World</title>
+    <script src="Pizza_JavaScript/Pizza.js" defer></script>
+    <link rel="stylesheet" href="Pizza_CSS/Pizza.css">
+</head>
+<body>
+    <div id="menuBG">
+        <h1 style="margin: 0 0px 0 30px;">Order Your Pizza</h1>
+        <p class="tooltip">Select the size of your pizza and click "Place Order" to continue.</p>
+        <button id="btnOrder" onclick="getReceipt()">Place Order</button>
+        <form id="frmMenu">
+            <!-- Pizza Size Section -->
+            <div class="menu left">
+                <h3>Pizza Size:</h3>
+                <label><input class="size" type="radio" name="Size" value="Personal Pizza"> Personal Pizza</label><br>
+                <label><input class="size" type="radio" name="Size" value="Small Pizza"> Small Pizza</label><br>
+                <label><input class="size" type="radio" name="Size" value="Medium Pizza"> Medium Pizza</label><br>
+                <label><input class="size" type="radio" name="Size" value="Large Pizza" checked> Large Pizza</label><br>
+                <label><input class="size" type="radio" name="Size" value="Extra Large Pizza"> Extra Large Pizza</label>
+            </div>
+
+            <!-- Vegetables Section -->
+            <div class="menu center">
+                <h3>Vegetables:</h3>
+                <label><input class="toppings" type="checkbox" name="Vegetables" value="Mushrooms"> Mushrooms</label><br>
+                <label><input class="toppings" type="checkbox" name="Vegetables" value="Onions"> Onions</label><br>
+                <label><input class="toppings" type="checkbox" name="Vegetables" value="Tomatoes"> Tomatoes</label><br>
+                <label><input class="toppings" type="checkbox" name="Vegetables" value="Olives"> Olives</label><br>
+                <label><input class="toppings" type="checkbox" name="Vegetables" value="Green Peppers"> Green Peppers</label>
+            </div>
+
+            <!-- Meat Section -->
+            <div class="menu right">
+                <h3>Meat:</h3>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Pepperoni"> Pepperoni</label><br>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Sausage"> Sausage</label><br>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Bacon"> Bacon</label><br>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Ham"> Ham</label><br>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Chicken"> Chicken</label><br>
+                <label><input class="toppings" type="checkbox" name="Meat" value="Salami"> Salami</label>
+            </div>
+
+            <!-- Cart Section -->
+            <div id="cart">
+                <div id="showText"></div>
+                <div id="totalPrice"></div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
