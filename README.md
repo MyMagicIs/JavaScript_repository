@@ -9,5 +9,3 @@ A dynamic and interactive menu system that lets you order a pizza with your choi
 Tic-Tac-Toe Game
 The timeless game of Tic-Tac-Toe with a modern twist! Before the game begins, dice rolls determine which player goes first. Players can choose their tokens, and the winner is celebrated with lively music and flashing lights. A fun way to blend logic, randomness, and user experience!
 
-Calculator
-A sleek, web-based calculator that performs the four basic mathematical functions: addition, subtraction, multiplication, and division. The minimalist design and intuitive interface make it a handy tool for quick calculations while showcasing clean and efficient JavaScript code.
